@@ -1,31 +1,39 @@
-lsblk							list partitions
-su -							log in as root
-apt-get update -y				update package list
-apt-get upgrade -y				upgrade installed packages
-apt install sudo				install sudo package
-usermod -aG sudo mburakow   	add user to sudo group
-getent group sudo				check if user in sudo group
-sudo visudo						open sudoers file
-apt-get install git -y			install git
-git --version					show git version
+lsblk								list partitions
+su -								log in as root
+apt-get update -y					update package list
+apt-get upgrade -y					upgrade installed packages
+apt install sudo					install sudo package
+usermod -aG sudo mburakow   		add user to sudo group
+getent group sudo					check if user in sudo group
+sudo visudo							open sudoers file
+apt-get install git -y				install git
+git --version						show git version
 sudo apt install openssh-server
-sudo systemctl status ssh		check SSH server status
-sudo vim /etc/ssh/sshd_config	ssh config
+sudo systemctl status ssh			check SSH server status
+sudo vim /etc/ssh/sshd_config		ssh config
+
 Open port 4242, make NAT port forwarding rule 4242, 4242 no ip
-sudo service ssh restart		restart SSH service
-sudo systemctl restart ssh		restart SSH server
-sudo service sshd status		check SSH status
-ssh username@127.0.0.1 -p 4242  to check that the SSH works
+
+sudo service ssh restart			restart SSH service
+sudo systemctl restart ssh			restart SSH server
+sudo service sshd status			check SSH status
+sudo grep Port /etc/ssh/sshd_config	check port status
+ssh username@127.0.0.1 -p 4242  	to check that the SSH works
+apt-get install ufw					install uncomplicated firewall
+sudo ufw enable
+sudo ufw status numbered
+sudo ufw allow ssh		
+
 sudo apt-get install libpam-pwquality	install password quality lib
 sudo vim /etc/pam.d/common-password		modify password quality rules
-sudo vim /etc/login.defs		modify password expiry rules
-sudo reboot						for the changes to take effect
-sudo groupadd user42			create new usergroup named user42
-sudo adduser testboi2			create new user named testboi2
+sudo vim /etc/login.defs			modify password expiry rules
+sudo reboot							for the changes to take effect
+sudo groupadd user42				create new usergroup named user42
+sudo adduser testboi2				create new user named testboi2
 sudo usermod -aG user42 testboi2	assign user to group
 getent group user42						check members of group
 groups <user>							check groups user belongs to
-sudo hage -l <username>				check that password rules work
+sudo chage -l <username>				check that password rules work
 CREATING SUDO LOG:
 cd ~/../
 cd /var/log
