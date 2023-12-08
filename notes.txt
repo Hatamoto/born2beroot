@@ -16,4 +16,28 @@ sudo service ssh restart		restart SSH service
 sudo systemctl restart ssh		restart SSH server
 sudo service sshd status		check SSH status
 ssh username@127.0.0.1 -p 4242  to check that the SSH works
+sudo apt-get install libpam-pwquality	install password quality lib
+sudo vim /etc/pam.d/common-password		modify password quality rules
+sudo vim /etc/login.defs		modify password expiry rules
+sudo reboot						for the changes to take effect
+sudo groupadd user42			create new usergroup named user42
+sudo adduser testboi2			create new user named testboi2
+sudo usermod -aG user42 testboi2	assign user to group
+getent group user42						check members of group
+groups <user>							check groups user belongs to
+sudo hage -l <username>				check that password rules work
+CREATING SUDO LOG:
+cd ~/../
+cd /var/log
+mkdir sudo
+cd sudo && touch sudo.log
+cd ~/../
+=======================
+sudo vim /etc/sudoers.d/<filename>		edit another sudo config file
+sudo shutdown now				close the VM
+apt-get install -y net-tools	install netstat tools
+
+sudo crontab -u root -e			edit crontabs
+sudo crontab -u root -l			show crontabs
+sudo aa-status					check if apparmor is running
 
