@@ -1,0 +1,19 @@
+lsblk							list partitions
+su -							log in as root
+apt-get update -y				update package list
+apt-get upgrade -y				upgrade installed packages
+apt install sudo				install sudo package
+usermod -aG sudo mburakow   	add user to sudo group
+getent group sudo				check if user in sudo group
+sudo visudo						open sudoers file
+apt-get install git -y			install git
+git --version					show git version
+sudo apt install openssh-server
+sudo systemctl status ssh		check SSH server status
+sudo vim /etc/ssh/sshd_config	ssh config
+Open port 4242, make NAT port forwarding rule 4242, 4242 no ip
+sudo service ssh restart		restart SSH service
+sudo systemctl restart ssh		restart SSH server
+sudo service sshd status		check SSH status
+ssh username@127.0.0.1 -p 4242  to check that the SSH works
+
